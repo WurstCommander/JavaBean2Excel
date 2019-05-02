@@ -1,4 +1,4 @@
-# Bean 2 xlsx / Excel (Java Beans to Excel files Exporter / Converter)
+# Bean 2 xls / Excel (Java Beans to Excel files Exporter / Converter)
 
 Converts Java Beans to Excel files (xlxs) via Apache POI including cellformats
 
