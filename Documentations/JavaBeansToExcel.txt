@@ -1,0 +1,18 @@
+2.Java Beans To Excel:
+-Converts Java Beans to Excel files (xlxs) via Apache POI including cellformats.
+-BeanColumn:This class represents a column in the Excel sheet. It defines properties.
+-FormatType:represents different data formats that a column in the Excel sheet.
+-bean2xlsx(List<?> data, BeanColumn[] columns, String filename, String sheetname): 
+Converts the list of beans to an Excel file.
+It calls addSheet() to add data to the workbook, then writes the workbook to the specified file.
+-We Run Junit test cases for this project are:
+   which is responsible for exporting data to an Excel file.
+   exportDataToXlxs() Test Case:verify whether the Bean2xlsx class correctly exports data to 
+   an Excel file when provided with a small amount of test data.
+   createBigXLSx() Test Case:  This test case verifies the behavior of the Bean2xlsx class
+   when dealing with a large amount of data.
+   
+   I write my own test cases are:
+   exportEmptyDataToXlsx() and it checks the behavior of the Bean2xlsx class 
+   when provided with an empty data list.
+   

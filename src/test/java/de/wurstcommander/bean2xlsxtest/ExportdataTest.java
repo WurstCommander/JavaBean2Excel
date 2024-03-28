@@ -1,5 +1,8 @@
 package de.wurstcommander.bean2xlsxtest;
 
+import static org.junit.Assert.assertTrue;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +26,7 @@ public class ExportdataTest {
 		// create testdata
 		List<Car> data = TestData.createTestData();
 		Bean2xlsx beanexcel = new Bean2xlsx();
-		beanexcel.bean2xlsx(data, columns, "C://exceldata.xlsx", "Cars");
+		beanexcel.bean2xlsx(data, columns, "Data/exceldata2.xlsx", "Cars");
 	}
 
 	@Test
@@ -37,6 +40,32 @@ public class ExportdataTest {
 			manycars.addAll((TestData.createTestData()));
 		}
 		Bean2xlsx beanexcel = new Bean2xlsx();
-		beanexcel.bean2xlsx(manycars, columns, "C://exceldataBig.xlsx", "Cars");
+		beanexcel.bean2xlsx(manycars, columns, "Data/exceldataBig2.xlsx", "Cars");
 	}
+
+	//my writen test case
+	
+	
+	  @Test
+	    public void exportEmptyDataToXlsx() {
+	        // Column definitions
+	        BeanColumn[] columns = new BeanColumn[] {
+	                new BeanColumn("name", "Carmodel", FormatType.TEXT),
+	                new BeanColumn("power", "Power", FormatType.INTEGER),
+	                new BeanColumn("priceinEuro", "Price in Euro", FormatType.MONEY) };
+
+	        // Create an empty list for empty data
+	        List<Car> emptyData = new ArrayList<>();
+	        String excelPath = "Data/emptyExcelData.xlsx";
+	        String sheetName = "EmptyDataSheet";
+
+	       
+	        Bean2xlsx beanExcel = new Bean2xlsx();
+	        beanExcel.bean2xlsx(emptyData, columns, excelPath, sheetName);
+
+	        // Verify test case
+	        File file = new File(excelPath);
+	        assertTrue("Excel file not created", file.exists());
+	        assertTrue("Excel file is empty", file.length() > 0);
+	    }
 }
